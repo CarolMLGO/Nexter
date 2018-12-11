@@ -1,0 +1,51 @@
+.features {
+	// background-color: blue; //for testing
+	margin: 15rem 0;
+
+	@media only screen and (max-width: $bp-medium) {
+		margin: 10rem 0;
+	}
+	@media only screen and (max-width: $bp-small) {
+		margin: 6rem 0;
+		grid-gap: 4rem;
+	}
+
+	@supports(display:grid) {
+		display: grid;
+		grid-column: center-start / center-end;
+		grid-gap: 6rem;
+
+		// grid-template-columns: repeat(3,1fr);
+		//----responsive design without media queries:
+		grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+		align-items: start; // small trick
+	}
+}
+
+.feature {
+	float: left;
+	width: 33.33333%;
+	margin-bottom: 6rem;
+	@supports (display: grid) {
+		width: auto;
+		margin-bottom: 0;
+		// background-color: red;
+		//much simplier to use grid instead of flex-box, for flex-box, you have to use margin etc..
+		display: grid;
+		grid-template-columns: min-content 1fr;
+		grid-row-gap: 1.5rem;
+		grid-column-gap: 2.5rem;
+	}
+
+
+	
+
+	&__icon {
+		width: 4.5rem;
+		height: 4.5rem;
+		grid-row: 1 / span 2; //-1 only works for explicit grid
+		grid-column: 1/ span 1;
+		fill: $color-primary;
+		transform: translateY(-1rem);
+	}
+}

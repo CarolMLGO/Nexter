@@ -1,0 +1,108 @@
+.homes{
+	// background-color: $color-secondary;//for testing
+	grid-column: center-start / center-end;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(25rem,1fr));
+
+	grid-gap: 5rem;
+	padding: 5rem 0;
+}
+
+.home {
+	background-color: $color-grey-light-1;
+	display: grid;
+	grid-template-columns:repeat(2,1fr);// only define the columns, implicit rows
+	grid-row-gap: 3.5rem;
+
+	&__img {
+		width: 100%;
+		grid-row: 1/ min-content ;
+		grid-column: 1/-1;
+	}
+
+	&__like {
+		//styling
+		width: 2.5rem;
+		height: 2.5rem;
+		fill: $color-primary;
+		margin: 1rem;
+		//position the icon
+		grid-column: 2/span 1;
+		grid-row: 1 /span 1;
+		justify-self: end;
+		align-self: start;
+	}
+
+	&__name {
+		//postioning name
+		grid-column: 1/-1;
+		grid-row: 1 / 2;
+		width: 80%;
+		text-align: center;
+		justify-self: center;
+		align-self: end; //put in the bottom location of the grid cell
+		//styling
+		background-color: $color-secondary;
+		color: white;
+		padding: 1.25rem;
+		font-size: 1.6rem;
+		font-weight: 400;
+		transform: translateY(50%);
+		font-family: $font-display;
+	}
+
+	&__location,&__rooms {
+		margin-top:2.5rem;//unfortunately, we can not define gap individually
+	}
+	//add them together
+	&__location,&__rooms,
+	&__area,&__price {
+		display: flex;
+		align-items: center; //vertically
+		font-size: 1.5rem;
+		margin-left: 3rem;
+
+		svg {
+			width: 2.5rem;
+			height: 2.5rem;
+			fill: $color-primary;
+			margin-right: 1rem;
+		}
+	}
+
+	// &__location {
+	// 	grid-row: 5/6;
+	// 	grid-column: 1/2;
+
+	// 	display: flex;
+
+	// }
+
+	// &__rooms {
+	// 	grid-row: 5/6;
+	// 	grid-column: 2/3;
+
+	// 	display: flex;
+	// }
+
+	// &__area {
+	// 	grid-row: 6/7;
+	// 	grid-column: 1/2;
+
+	// 	display: flex;
+	// }
+
+	// &__price {
+	// 	grid-row: 6/7;
+	// 	grid-column: 2/3;
+
+	// 	display: flex;
+	// }
+
+	&__button {
+		grid-column: 1/ -1;
+		align-self: end;
+		justify-self: stretch;
+	}
+}
+
